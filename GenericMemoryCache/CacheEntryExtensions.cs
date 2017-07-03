@@ -6,9 +6,8 @@ namespace GenericMemoryCache
 {
     public static class CacheEntryExtensions
     {
-        public static ICacheEntry<TKey, TValue> ToGeneric<TKey, TValue>(ICacheEntry entry)
+        public static ICacheEntry<TKey, TValue> ToGeneric<TKey, TValue>(this ICacheEntry entry)
             => new CacheEntry<TKey, TValue>(entry);
-
 
         /// <summary>
         /// Sets the priority for keeping the cache entry in the cache during a memory pressure tokened cleanup.
