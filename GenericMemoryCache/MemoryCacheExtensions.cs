@@ -50,7 +50,7 @@ namespace GenericMemoryCache
             Func<ICacheEntry<TKey, TValue>, TValue> factory)
         {
             TValue ObjectFactory(ICacheEntry entry)
-                => factory(new CacheEntry<TKey, TValue>(entry));
+                => factory(entry.ToGeneric<TKey, TValue>());
 
             return cache.Cache.GetOrCreate<TValue>(key, ObjectFactory);
         }
